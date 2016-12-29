@@ -1,6 +1,7 @@
-# pacificnm-acl
+# pacificnm-page
 
-Provides a lightweight and flexible access control list (ACL) implementation for privileges management.
+Provides page services and management for PacificNM.
 
-File issues at https://github.com/pacificnm/pacificnm-acl/issues
-Documentation is at https://github.com/pacificnm/pacificnm-acl/
+File issues at https://github.com/pacificnm/pacificnm-page/issues
+
+Documentation is at https://github.com/pacificnm/pacificnm-page/
