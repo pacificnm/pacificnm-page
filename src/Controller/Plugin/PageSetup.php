@@ -42,6 +42,8 @@ class PageSetup extends AbstractPlugin
     {
         $entity = $this->service->getPageByName($pageName);
         
+        
+        
         if($entity) {
             $layout->setVariable('pageSubTitle', $entity->getPageSubtitle());
             
@@ -55,6 +57,7 @@ class PageSetup extends AbstractPlugin
             
             $this->phpRenderer->headTitle($entity->getPageTitle());
             
+            $this->phpRenderer->layout('/layout/' . $entity->getPageLayout() . '.phtml');
             
         } else {
             $layout->setVariable('pageSubTitle', 'Home');
