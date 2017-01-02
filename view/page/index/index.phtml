@@ -13,13 +13,13 @@
 			<div class="box-header with-border">
 				<h3 class="box-title">
 					<i class="<?php echo $this->layout()->pageIcon; ?>" aria-hidden="true"></i>
-					<?php echo $this->translate('Application Pages'); ?> 
-					<small><?php echo $this->translate('Page'); ?>: <?php echo $this->page; ?></small>
+					<?php echo $this->translate("Application Pages"); ?> 
+					<small><?php echo $this->translate("Page"); ?>: <?php echo $this->page; ?></small>
 				</h3>
 				<div class="box-tools">
-					<?php echo $this->searchButton('page-search'); ?>
+					<?php echo $this->searchButton("page-search"); ?>
 					
-					<?php echo $this->createButton('page-create'); ?>
+					<?php echo $this->createButton("page-create"); ?>
 				</div>
 			</div>
 			<?php if($this->paginator->count() == 0): ?>
@@ -27,7 +27,7 @@
 				<div class="alert alert-info">
 					<p>
 						<i class="fa fa-info-circle" aria-hidden="true"></i> 
-						<?php echo $this->translate('No pages found'); ?>
+						<?php echo $this->translate("No pages found"); ?>
 					</p>
 				</div>
 			</div>
@@ -39,29 +39,31 @@
 							class="table table-bordered table-hover table-striped table-condensed">
 							<thead>
 								<tr>
-									<th><?php echo $this->translate('Name'); ?></th>
-									<th><?php echo $this->translate('Title'); ?></th>
-									<th><?php echo $this->translate('Sub Title'); ?></th>
-									<th><?php echo $this->translate('Icon'); ?></th>
-									<th><?php echo $this->translate('Menu'); ?></th>
-									<th><?php echo $this->translate('Sub Menu'); ?></th>
-									<th><?php echo $this->translate('Type'); ?></th>
+									<th><?php echo $this->translate("Name"); ?></th>
+									<th><?php echo $this->translate("Title"); ?></th>
+									<th><?php echo $this->translate("Sub Title"); ?></th>
+									<th><?php echo $this->translate("Icon"); ?></th>
+									<th><?php echo $this->translate("Menu"); ?></th>
+									<th><?php echo $this->translate("Sub Menu"); ?></th>
+									<th><?php echo $this->translate("Layout"); ?></th>
+									<th><?php echo $this->translate("Type"); ?></th>
 								</tr>
 							</thead>
 							<tbody>
 							<?php foreach($this->paginator as $entity): ?>
 								<tr>
 									<td>
-										<a href="<?php echo $this->url('page-view', array('id' => $entity->getPageId())); ?>" 
-											title="<?php echo $this->translate('View Details'); ?>">
+										<a href="<?php echo $this->url("page-view", array("id" => $entity->getPageId())); ?>" 
+											title="<?php echo $this->translate("View Details"); ?>">
 											<?php echo $entity->getPageName(); ?>
 										</a>
 									</td>
 									<td><?php echo $entity->getPageTitle(); ?></td>
 									<td><?php echo $entity->getPageSubtitle(); ?></td>
 									<td><?php echo $entity->getPageIcon(); ?></td>
-									<td><?php Echo $entity->getPageMenu(); ?></td>
+									<td><?php echo $entity->getPageMenu(); ?></td>
 									<td><?php echo $entity->getPageMenuSub(); ?></td>
+									<td><?php echo $entity->getLayoutEntity()->getLayoutName(); ?></td>
 									<td><?php echo $entity->getPageType(); ?></td>
 								</tr>
 							<?php endforeach; ?>

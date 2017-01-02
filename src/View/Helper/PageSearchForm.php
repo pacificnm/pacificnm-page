@@ -5,6 +5,11 @@ use Zend\View\Helper\AbstractHelper;
 
 class PageSearchForm extends AbstractHelper
 {
+    public function __construct()
+    {
+        
+    }
+    
     /**
      * 
      * @param array $queryParams

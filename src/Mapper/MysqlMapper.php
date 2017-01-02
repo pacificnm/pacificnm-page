@@ -38,7 +38,7 @@ class MysqlMapper extends AbstractMysqlMapper implements MysqlMapperInterface
     {
         $this->select = $this->readSql->select('page');
         
-        $this->joinController()->joinModule();
+        $this->joinController()->joinModule()->joinLayout();
         
         $this->filter($filter);
         
@@ -64,7 +64,7 @@ class MysqlMapper extends AbstractMysqlMapper implements MysqlMapperInterface
     {
         $this->select = $this->readSql->select('page');
         
-        $this->joinController()->joinModule();
+        $this->joinController()->joinModule()->joinLayout();
         
         $this->select->where(array(
             'page.page_id = ?' => $id
@@ -83,7 +83,7 @@ class MysqlMapper extends AbstractMysqlMapper implements MysqlMapperInterface
     {
         $this->select = $this->readSql->select('page');
         
-        $this->joinController()->joinModule();
+        $this->joinController()->joinModule()->joinLayout();
         
         $this->select->where(array(
             'page.page_name = ?' => $pageName
@@ -210,6 +210,21 @@ class MysqlMapper extends AbstractMysqlMapper implements MysqlMapperInterface
         $this->select->join('module', 'page.module_id = module.module_id', array(
             'module_name',
             'module_version'
+        ), 'left');
+        
+        return $this;
+    }
+    
+    /**
+     * 
+     * @return \Pacificnm\Page\Mapper\MysqlMapper
+     */
+    protected function joinLayout()
+    {
+        $this->select->join('layout', 'page.layout_id = layout.layout_id', array(
+            'layout_name',
+            'layout_file',
+            'layout_active'
         ), 'left');
         
         return $this;

@@ -34,9 +34,13 @@ class Hydrator extends ClassMethods
         
         $moduleEntity = parent::hydrate($data, new \Pacificnm\Module\Entity\Entity());
         
+        $layoutEntity = parent::hydrate($data, new \Pacificnm\Layout\Entity\Entity());
+        
         $object->setControllerEntity($controllerEntity);
         
         $object->setModuleEntity($moduleEntity);
+        
+        $object->setLayoutEntity($layoutEntity);
         
         return $object;
     }
@@ -58,6 +62,8 @@ class Hydrator extends ClassMethods
         unset($data['controller_entity']);
         
         unset($data['module_entity']);
+        
+        unset($data['layout_entity']);
         
         return $data;
     }

@@ -48,21 +48,21 @@ class Entity
 
     /**
      *
-     * @var string
+     * @var number
      */
-    protected $pageLayout;
-
-    /**
-     *
-     * @var string
-     */
-    protected $pageType;
+    protected $layoutId;
 
     /**
      *
      * @var string
      */
     protected $pageRoute;
+
+    /**
+     *
+     * @var string
+     */
+    protected $pageType;
 
     /**
      *
@@ -84,15 +84,21 @@ class Entity
 
     /**
      *
-     * @var \Controller\Entity\Entity
+     * @var \Pacificnm\Controller\Entity\Entity
      */
     protected $controllerEntity;
 
     /**
      *
-     * @var \Module\Entity\Entity
+     * @var \Pacificnm\Module\Entity\Entity
      */
     protected $moduleEntity;
+
+    /**
+     *
+     * @var \Pacificnm\Layout\Entity\Entity
+     */
+    protected $layoutEntity;
 
     /**
      *
@@ -159,20 +165,11 @@ class Entity
 
     /**
      *
-     * @return the $pageLayout
+     * @return the $layoutId
      */
-    public function getPageLayout()
+    public function getLayoutId()
     {
-        return $this->pageLayout;
-    }
-
-    /**
-     *
-     * @return the $pageType
-     */
-    public function getPageType()
-    {
-        return $this->pageType;
+        return $this->layoutId;
     }
 
     /**
@@ -182,6 +179,15 @@ class Entity
     public function getPageRoute()
     {
         return $this->pageRoute;
+    }
+
+    /**
+     *
+     * @return the $pageType
+     */
+    public function getPageType()
+    {
+        return $this->pageType;
     }
 
     /**
@@ -227,6 +233,15 @@ class Entity
     public function getModuleEntity()
     {
         return $this->moduleEntity;
+    }
+
+    /**
+     *
+     * @return the $layoutEntity
+     */
+    public function getLayoutEntity()
+    {
+        return $this->layoutEntity;
     }
 
     /**
@@ -294,20 +309,11 @@ class Entity
 
     /**
      *
-     * @param string $pageLayout            
+     * @param number $layoutId            
      */
-    public function setPageLayout($pageLayout)
+    public function setLayoutId($layoutId)
     {
-        $this->pageLayout = $pageLayout;
-    }
-
-    /**
-     *
-     * @param string $pageType            
-     */
-    public function setPageType($pageType)
-    {
-        $this->pageType = $pageType;
+        $this->layoutId = $layoutId;
     }
 
     /**
@@ -321,7 +327,16 @@ class Entity
 
     /**
      *
-     * @param \Page\Entity\moduleId $moduleId            
+     * @param string $pageType            
+     */
+    public function setPageType($pageType)
+    {
+        $this->pageType = $pageType;
+    }
+
+    /**
+     *
+     * @param \Pacificnm\Page\Entity\moduleId $moduleId            
      */
     public function setModuleId($moduleId)
     {
@@ -330,7 +345,7 @@ class Entity
 
     /**
      *
-     * @param \Page\Entity\controllerId $controllerId            
+     * @param \Pacificnm\Page\Entity\controllerId $controllerId            
      */
     public function setControllerId($controllerId)
     {
@@ -348,7 +363,7 @@ class Entity
 
     /**
      *
-     * @param \Controller\Entity\Entity $controllerEntity            
+     * @param \Pacificnm\Controller\Entity\Entity $controllerEntity            
      */
     public function setControllerEntity($controllerEntity)
     {
@@ -357,11 +372,20 @@ class Entity
 
     /**
      *
-     * @param \Module\Entity\Entity $moduleEntity            
+     * @param \Pacificnm\Module\Entity\Entity $moduleEntity            
      */
     public function setModuleEntity($moduleEntity)
     {
         $this->moduleEntity = $moduleEntity;
+    }
+
+    /**
+     *
+     * @param \Pacificnm\Layout\Entity\Entity $layoutEntity            
+     */
+    public function setLayoutEntity($layoutEntity)
+    {
+        $this->layoutEntity = $layoutEntity;
     }
 }
 

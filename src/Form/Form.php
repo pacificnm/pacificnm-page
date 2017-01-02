@@ -8,6 +8,7 @@ use Pacificnm\Page\Entity\Entity;
 use Pacificnm\Menu\Service\ServiceInterface as MenuServiceInterface;
 use Pacificnm\MenuItem\Service\ServiceInterface as MenuItemServiceInterface;
 use Pacificnm\Controller\Service\ServiceInterface as ControllerServiceInterface;
+use Pacificnm\Layout\Service\ServiceInterface as LayoutServiceInterface;
 
 class Form extends ZendForm implements InputFilterProviderInterface
 {
@@ -31,13 +32,20 @@ class Form extends ZendForm implements InputFilterProviderInterface
     
     /**
      * 
+     * @var LayoutServiceInterface
+     */
+    protected $layoutService;
+    
+    /**
+     * 
      * @param MenuServiceInterface $menuService
      * @param MenuItemServiceInterface $menuItemService
      * @param ControllerServiceInterface $controllerService
+     * @param LayoutServiceInterface $layoutService
      * @param string $name
      * @param array $options
      */
-    public function __construct(MenuServiceInterface $menuService, MenuItemServiceInterface $menuItemService, ControllerServiceInterface $controllerService, $name = 'page-form', $options = array())
+    public function __construct(MenuServiceInterface $menuService, MenuItemServiceInterface $menuItemService, ControllerServiceInterface $controllerService, LayoutServiceInterface $layoutService,$name = 'page-form', $options = array())
     {
         parent::__construct($name, $options);
         
@@ -56,7 +64,7 @@ class Form extends ZendForm implements InputFilterProviderInterface
             'name' => 'pageId',
             'type' => 'hidden',
             'attributes' => array(
-                'id' => 'pageName'
+                'id' => 'pageId'
             )
         ));
         
@@ -138,6 +146,20 @@ class Form extends ZendForm implements InputFilterProviderInterface
             'attributes' => array(
                 'class' => 'form-control',
                 'id' => 'pageMenuSub'
+            )
+        ));
+        
+        // layoutId
+        $this->add(array(
+            'type' => 'Select',
+            'name' => 'layoutId',
+            'options' => array(
+                'label' => 'Layout:',
+                'value_options' => $this->getMenuSubOptions()
+            ),
+            'attributes' => array(
+                'class' => 'form-control',
+                'id' => 'layoutId'
             )
         ));
         
@@ -274,6 +296,23 @@ class Form extends ZendForm implements InputFilterProviderInterface
         return $options;
     }
     
-
+    /**
+     * 
+     * @return NULL[]
+     */
+    protected function getLayoutOptions()
+    {
+        $options = array();
+        
+        $entitys = $this->layoutService->getAll(array(
+            'pagination' => 'off'
+        ));
+        
+        foreach($entitys as $entity) {
+            $options[$entity->getLayoutId()] = $entity->getLayoutName();
+        }
+        
+        return $options;
+    }
 }
 
