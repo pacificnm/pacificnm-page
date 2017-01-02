@@ -10,7 +10,7 @@ class PageSetup extends AbstractPlugin
 {
 
     /**
-     * 
+     *
      * @var ServiceInterface
      */
     protected $service;
@@ -20,11 +20,11 @@ class PageSetup extends AbstractPlugin
      * @var Zend\View\Renderer\PhpRenderer
      */
     protected $phpRenderer;
-    
+
     /**
-     * 
-     * @param ServiceInterface $service
-     * @param PhpRenderer $phpRenderer
+     *
+     * @param ServiceInterface $service            
+     * @param PhpRenderer $phpRenderer            
      */
     public function __construct(ServiceInterface $service, PhpRenderer $phpRenderer)
     {
@@ -42,7 +42,7 @@ class PageSetup extends AbstractPlugin
     {
         $entity = $this->service->getPageByName($pageName);
         
-        if($entity) {
+        if ($entity) {
             $layout->setVariable('pageSubTitle', $entity->getPageSubtitle());
             
             $layout->setVariable('pageTitle', $entity->getPageTitle());
@@ -55,7 +55,8 @@ class PageSetup extends AbstractPlugin
             
             $this->phpRenderer->headTitle($entity->getPageTitle());
             
-            
+            $this->phpRenderer->layout($entity->getLayoutEntity()
+                ->getLayoutFile());
         } else {
             $layout->setVariable('pageSubTitle', 'Home');
             

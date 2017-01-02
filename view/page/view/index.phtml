@@ -13,13 +13,13 @@
 			<div class="box-header with-border">
 				<h3 class="box-title">
 					<i class="<?php echo $this->layout()->pageIcon; ?>" aria-hidden="true"></i>
-					<?php echo $this->translate('Application Page'); ?> 
+					<?php echo $this->translate("Application Page"); ?> 
 					<small><?php echo $this->entity->getPageName(); ?></small>
 				</h3>
 				<div class="box-tools">
-					<?php echo $this->deleteButton('page-delete', array('id' => $this->entity->getPageId())); ?>
+					<?php echo $this->deleteButton("page-delete", array("id" => $this->entity->getPageId())); ?>
 					
-					<?php echo $this->updateButton('page-update', array('id' => $this->entity->getPageId())); ?>
+					<?php echo $this->updateButton("page-update", array("id" => $this->entity->getPageId())); ?>
 				</div>
 			</div>
 			<div class="box-body box-profile">
@@ -27,48 +27,54 @@
 				<p class="text-muted text-center"><?php echo $this->entity->getPageTitle(); ?> - <?php echo $this->entity->getPageSubtitle(); ?></p>
 				<ul class="list-group list-group-unbordered">
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Page Id'); ?>:</b> <?php echo $this->entity->getPageId(); ?>
+						<b><?php echo $this->translate("Page Id"); ?>:</b> <?php echo $this->entity->getPageId(); ?>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Page Name'); ?>:</b> <?php echo $this->entity->getPageName(); ?>
+						<b><?php echo $this->translate("Page Name"); ?>:</b> <?php echo $this->entity->getPageName(); ?>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Page Title'); ?>:</b> <?php echo $this->entity->getPageTitle(); ?>
+						<b><?php echo $this->translate("Page Title"); ?>:</b> <?php echo $this->entity->getPageTitle(); ?>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Page Sub Title'); ?>:</b> <?php echo $this->entity->getPageSubtitle(); ?>
+						<b><?php echo $this->translate("Page Sub Title"); ?>:</b> <?php echo $this->entity->getPageSubtitle(); ?>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Page Icon'); ?>:</b> <?php echo $this->entity->getPageIcon(); ?> 
+						<b><?php echo $this->translate("Page Icon"); ?>:</b> <?php echo $this->entity->getPageIcon(); ?> 
 							<i class="<?php echo $this->entity->getPageIcon()?>" aria-hidden="true"></i>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Active Menu'); ?>:</b> <?php Echo $this->entity->getPageMenu(); ?>
+						<b><?php echo $this->translate("Active Menu"); ?>:</b> <?php Echo $this->entity->getPageMenu(); ?>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Active Sub Menu'); ?>:</b> <?php echo $this->entity->getPageMenuSub(); ?>
+						<b><?php echo $this->translate("Active Sub Menu"); ?>:</b> <?php echo $this->entity->getPageMenuSub(); ?>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Route Type'); ?>:</b> <?php echo $this->entity->getPageType(); ?>
+						<b><?php echo $this->translate("Layout"); ?>:</b> 
+						<a href="<?php echo $this->url("layout-view", array("id" => $this->entity->getLayoutEntity()->getLayoutId())); ?>" title="<?php echo $this->entity->getLayoutEntity()->getLayoutName(); ?>">
+							<?php echo $this->entity->getLayoutEntity()->getLayoutName(); ?>
+						</a>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Route'); ?>:</b> <?php echo $this->entity->getPageRoute(); ?>
+						<b><?php echo $this->translate("Route Type"); ?>:</b> <?php echo $this->entity->getPageType(); ?>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Module'); ?>:</b> 
-						<a href="<?php echo $this->url('module-view', array('id' => $this->entity->getModuleId())); ?>" title="<?php echo $this->translate('View'); ?>">
+						<b><?php echo $this->translate("Route"); ?>:</b> <?php echo $this->entity->getPageRoute(); ?>
+					</li>
+					<li class="list-group-item">
+						<b><?php echo $this->translate("Module"); ?>:</b> 
+						<a href="<?php echo $this->url("module-view", array("id" => $this->entity->getModuleId())); ?>" title="<?php echo $this->translate("View"); ?>">
 							<?php echo $this->entity->getModuleEntity()->getModuleName(); ?>
 						</a>
 						
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Controller'); ?>:</b> 
-						<a href="<?php echo $this->url('controller-view', array('id' => $this->entity->getControllerId())); ?>" title="<?php echo $this->translate('View'); ?>">
+						<b><?php echo $this->translate("Controller"); ?>:</b> 
+						<a href="<?php echo $this->url("controller-view", array("id" => $this->entity->getControllerId())); ?>" title="<?php echo $this->translate("View"); ?>">
 							<?php echo $this->entity->getControllerEntity()->getControllerName(); ?>
 						</a>
 					</li>
 					<li class="list-group-item">
-						<b><?php echo $this->translate('Action'); ?>:</b> <?php echo $this->entity->getPageAction(); ?>
+						<b><?php echo $this->translate("Action"); ?>:</b> <?php echo $this->entity->getPageAction(); ?>
 					</li>
 				</ul>
 			</div>
